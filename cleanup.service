@@ -1,0 +1,11 @@
+[Unit]
+Description=Cleanup Service
+After=deuxieme_script.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/bin/bash /home/senantq/ORE/test_systemd2/cleanup.sh
+
+[Install]
+WantedBy=multi-user.target

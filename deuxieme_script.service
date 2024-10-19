@@ -1,0 +1,14 @@
+[Unit]
+Description=Run the second Python script
+After=premier_script.service
+OnSuccess=cleanup.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/bin/bash /home/senantq/ORE/test_systemd2/submit_2.sh
+StandardOutput=append:/home/senantq/ORE/test_systemd2/deuxieme_script_output.log
+StandardError=append:/home/senantq/ORE/test_systemd2/deuxieme_script_error.log
+
+[Install]
+WantedBy=multi-user.target
